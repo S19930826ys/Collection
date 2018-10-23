@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title> New Document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<div id="ad" style="position:absolute">
+	<DIV onclick="hidead();" style="font-size:9pt;cursor:pointer;" align=right>关闭×</DIV>
+	<a href="#">
+		<img border="0" src="floatAd.png" style="cursor:pointer;"/>
+	</a>
+	</div>
+	<!-- <script src="js/jquery-1.11.3.js"></script> -->
+	<script type="text/javascript">
+	function hidead(){
+		document.getElementById("ad").style.display="none";
+		}
+	</script>
+	<script>
+	var x = 50,y = 60;
+	var xin = true, yin = true;
+	var step = 0.5;
+	var delay = 10;
+	var obj=document.getElementById("ad");
+	function floatAD() {
+	var L=T=0;
+	var R= document.documentElement.clientWidth-obj.offsetWidth;
+	var B = document.documentElement.clientHeight-obj.offsetHeight;
+	obj.style.left = x + document.body.scrollLeft + "px";
+	obj.style.top = y + document.body.scrollTop + "px";
+	x = x + step*(xin?1:-1)
+	if (x < L) { 
+			xin = true; 
+			x = L;
+		}
+	if (x > R){ 
+			xin = false; 
+			x = R;
+		}
+	y = y + step*(yin?1:-1);
+	if (y < T) { 
+			yin = true; y = T;
+		}
+	if (y > B) {
+			yin = false; y = B; 
+		}
+	}
+	//floatAD()结束
+	var itl= setInterval("floatAD()", delay);
+	obj.onmouseover=function(){ clearInterval(itl) }
+	obj.onmouseout=function(){ itl=setInterval("floatAD()", delay)}
+	</script>
+ </body>
+</html>
+

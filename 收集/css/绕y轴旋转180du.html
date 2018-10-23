@@ -1,0 +1,43 @@
+<!doctype html>
+ <html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <meta name="Generator" content="EditPlus®">
+   <meta name="Author" content="">
+   <meta name="Keywords" content="">
+   <meta name="Description" content="">
+  <title>Document</title>
+   <style>
+       body{margin: 0;padding:0;}
+ 
+       .rotate{
+           transition: 2s ease;
+       }
+ .out:hover .rotate{
+     transform:rotateY(180deg);
+     transition: 2s ease;
+ }
+    .back{
+        opacity: 0.4;
+        transition: 1s opacity;
+    }
+       .out:hover .back{opacity: 1;}
+   </style>
+  </head>
+  <body>
+ <div style="width: 960px;height: 400px;">
+ <div class="out"  style="width: 141.4px; height: auto;">
+      <div class="rotate" style="width: 141.4px; height: auto;">
+               <div style="width: 141.4px;height: 141.4px; background-color: green;">
+                   <div  style="width: 100px; height: 100px; transform:rotate(45deg); margin-left: 20px;margin-top: 20px; background-color: red; position: absolute;"></div>
+               </div>
+               <div class="back" style="width: 141.4px;height: 141.4px;  position: absolute;top: 0; background-color: yellow;">
+                  <div  style="width: 100px; height: 100px; transform:rotate(45deg); margin-left: 20px;margin-top: 20px; background-color: blueviolet; position: absolute;"></div>
+               </div>
+      </div>
+ </div>
+ 
+  </div>
+ 
+  </body>
+ </html>

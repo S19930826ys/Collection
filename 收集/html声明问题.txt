@@ -1,0 +1,1 @@
+html声明<!DOCTYPE html>如果出问题,会影响css相对的优先级，userAgent stylesheet会压住css reset

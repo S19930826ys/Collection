@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS3图片向上3D翻转渐隐消失特效 - 站长素材</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<style>
+	.box{
+		position: relative;
+		perspective: 1000px;
+	}
+	.box img{
+		width: 100%;
+		height: auto;
+		opacity:1;
+		transform: translateY(0) rotateX(0);
+		transition: all 0.6s ease-in-out 0s;
+	}
+	.box:hover img{
+		transform: translateY(-100%) rotateX(90deg);
+		transform-origin: center bottom 0;
+		opacity:0;
+	}
+	.box .over-layer{
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		opacity:0;
+		background:#333d4b;
+		text-align:center;
+		padding: 0 20px;
+		transition: all 0.60s ease-in-out 0s;
+	}
+	.box:hover .over-layer{
+		opacity:1;
+	}
+	.box .title,
+	.box .description,
+	.box .social-links{
+		position: relative;
+		top: 11%;
+		color: #d3d3d3;
+	}
+	.box .title{
+		text-transform: capitalize;
+	}
+	.box .title:after,
+	.box .description:after{
+		content:"";
+		width: 50%;
+		display: block;
+		margin: 10px auto 0;
+		border-bottom: 1px solid #fff;
+	}
+	.box .social-links{
+		padding:0;
+		margin:0;
+		list-style: none;
+	}
+	.box .social-links li{
+		margin: 10px;
+		display: inline-block;
+	}
+	.box .social-links li a{
+		color: #fff;
+		font-size: 20px;
+	}
+	.box .social-links li a:hover{
+		color: #d3d3d3;
+		text-decoration: none;
+	}
+	@media only screen and (max-width: 990px){
+		.box{  margin-bottom:20px; }
+	}
+</style>
+
+</head>
+<body>
+<div class="zzsc-container">
+	<div class="container mt50">
+		<div class="row">
+			<div class="col-md-4 col-sm-6">
+				<div class="box">
+					<img src="img/1.jpg" alt="">
+					<div class="over-layer">
+						<h3 class="title">Web designer</h3>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci blanditiis tenetur veniam? Ad architecto asperiores blanditiis.</p>
+						<ul class="social-links">
+							<li><a href="#" class="fa fa-download"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+							<li><a href="#" class="fa fa-search"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-6">
+				<div class="box">
+					<img src="img/2.jpg" alt="">
+					<div class="over-layer">
+						<h3 class="title">Web designer</h3>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci blanditiis tenetur veniam? Ad architecto asperiores blanditiis.</p>
+						<ul class="social-links">
+							<li><a href="#" class="fa fa-download"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+							<li><a href="#" class="fa fa-search"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-6">
+				<div class="box">
+					<img src="img/3.jpg" alt="">
+					<div class="over-layer">
+						<h3 class="title">Web designer</h3>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci blanditiis tenetur veniam? Ad architecto asperiores blanditiis.</p>
+						<ul class="social-links">
+							<li><a href="#" class="fa fa-download"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+							<li><a href="#" class="fa fa-search"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

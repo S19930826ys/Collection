@@ -1,0 +1,7 @@
+		var wd = $(window.parent.document);//找到最外层的窗口
+        	var index_iframe = wd.find("iframe[src$='/doubleplatform/a/biz/experesInfoTab/list'] ");//找到需要寻找的元素的父级iframe元素
+        	var userImageBox=index_iframe.contents().find("#userImageBox");//找到其对应的元素
+        	var html='<input type="hidden" name="expertsImage" value="'+response.filePath+'"><input type="hidden" name="imageName" value="'+file.name+'">';
+        	index_iframe.contents().find("#user-image img")[0].src='${ctx}/doc/download?downloadUrl='+response.filePath;
+        	index_iframe.contents().find("#userImageTitle").html(file.name+'<a id="userImageDelete" style="padding-left:10px;"><img src="${ctxStatic}/images/shanchu.png"></a>');
+           	userImageBox.html(html);

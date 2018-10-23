@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title> New Document </title>
+  <meta charset="utf-8">
+  <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+  <style>
+	.baoguo{
+		width:1200px;
+		height:300px;
+		margin:100px auto;
+		text-align:center;
+		font-size:30px;
+		border:1px solid #ddd;
+	}
+	.baoguo b{
+		font-size:30px;
+	}
+	.baoguo span{
+		color:red;
+		font-size:50px;
+	}
+	.baoguo img{
+		width:200px;
+	}
+  </style>
+ </head>
+ <body>
+	<div class="baoguo">
+		<img src="duihao.png">
+		<b>注册成功</b><span id="totalSecond">5</span>秒后自动返回首页
+	</div>
+	
+	<script language="javascript" type="text/javascript">
+	function countDown(secs){ 
+	totalSecond.innerText=secs; 
+		 if(--secs>0){
+			 setTimeout("countDown("+secs+")",1000); 
+		 } else{
+			 location.href = 'www.baidu.com';
+		 } 
+	 }
+	 countDown(5);  
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title> New Document </title>
+  <meta charset="utf-8">
+  <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+ </head>
+ <body>
+	<p class="prod-desc">
+
+
+		每一次流泪，每一次纪录，每一枚印迹，都是成长路上的必经，也是不断的在叠加生命的厚重。多彩的人生不仅是一帆风顺的泰然，更是一路走来，遭遇坎坷挫 折之时自己坚强的微笑，他人援助时留给自己窝心的感动。迎着阳光走路，身上总是感觉暖暖的，带着微笑生活，生命里也不会感觉孤单。用一种平和的心态来对待 生活，用安稳的心来平衡世间的起起落落，安然静坐，在迷乱的社会中找一席清闲之地，来安放奔波已久的心。
+
+一场细雨纷纷而至，季节的界限不在那么的明朗，走向花季的烂漫，走近雨季的清凉，五月的花朵不再像三月繁花的娇羞，仅仅吐露含苞的花蕊，透出点点的淡香， 而是倾尽全身的力气，开出沁人的心香。捻一丝细雨，听一曲轻音，让心在曼妙的乐曲中寻得安宁。推开忧伤，握住幸福，带着芳草的绿意，剪一段时光的缩影，在 人来人往中静观潮起潮落，淡看云卷云缩。
+	</p>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!--<script type="text/javascript">
+		$(function(){
+			$(".prod-desc").each(function(){
+					var texts=$(this).html();
+					console.log(texts);
+					texts = texts.replace(/(^\s*)/g, "");  //干掉开头处的空格
+					texts= texts.replace(/(\s*$)/g, "");   //干掉结尾处的空格
+					console.log(texts);
+					if(texts.length>150){
+						var headerTexts=texts.substring(0,150);
+						$(this).text(headerTexts+"...");
+					}
+				
+			})
+		})
+	</script>-->
+	<script type="text/javascript">
+    window.onload = function(){
+        var article1Node = document.querySelector("prod-desc");
+        article1Node.innerText = cutString(article1Node.innerText,420);
+    }
+    function cutString(str, len) {
+        //length属性读出来的汉字长度为1
+        if(str.length*2 <= len) {
+            return str;
+        }
+        var strlen = 0;
+        var s = "";
+        for(var i = 0;i < str.length; i++) {
+            s = s + str.charAt(i);
+            if (str.charCodeAt(i) > 128) {
+                strlen = strlen + 2;
+                if(strlen >= len){
+                    return s.substring(0,s.length-1) + "...";
+                }
+            } else {
+                strlen = strlen + 1;
+                if(strlen >= len){
+                    return s.substring(0,s.length-2) + "...";
+                }
+            }
+        }
+        return s;
+    }
+</script>
+ </body>
+</html>
+

@@ -1,0 +1,4 @@
+/*返回顶部的事件*/
+            $("#goTop").on('click',function(){
+                $('html,body').animate({scrollTop:0},'slow');
+            });

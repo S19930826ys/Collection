@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+    canvas {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h3>绘制拱形</h3>
+  <canvas id="c7" width="500" height="400"></canvas>
+
+  <script>
+    var ctx = c7.getContext('2d');
+
+    function openMouth(){
+      //绘制外框
+      ctx.beginPath();
+      ctx.arc(250,200, 100, Math.PI/4, 7*Math.PI/4);
+      ctx.lineTo(250,200);
+      ctx.closePath();
+
+      ctx.fillStyle = '#ed0';
+      ctx.fill();
+      ctx.stroke();
+
+      //绘制眼珠
+      ctx.beginPath();
+      ctx.arc(250,150,25, 0, 2*Math.PI);
+
+      ctx.fillStyle = '#0af';
+      ctx.fill();
+      ctx.stroke();
+
+      //绘制眼神光
+      ctx.beginPath();
+      ctx.arc(265, 140, 4, 0, 2*Math.PI);
+      ctx.arc(258, 132, 2, 0, 2*Math.PI);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+
+    }
+    //openMouth();
+
+    function closeMouth(){
+      //绘制外框
+      ctx.beginPath();
+      ctx.arc(250,200, 100, 0, 2*Math.PI);
+      ctx.lineTo(250,200);
+
+      ctx.fillStyle = '#ed0';
+      ctx.fill();
+      ctx.stroke();
+
+      //绘制眼珠
+      ctx.beginPath();
+      ctx.arc(250,150,25, 0, 2*Math.PI);
+
+      ctx.fillStyle = '#0af';
+      ctx.fill();
+      ctx.stroke();
+
+      //绘制眼神光
+      ctx.beginPath();
+      ctx.arc(265, 140, 4, 0, 2*Math.PI);
+      ctx.arc(258, 132, 2, 0, 2*Math.PI);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+
+    }
+    //closeMouth();
+
+    var isOpen = true;
+    setInterval(function(){
+      ctx.clearRect(0,0,500,400);
+      if(isOpen){
+        closeMouth();
+        isOpen = false;
+      }else {
+        openMouth();
+        isOpen = true;
+      }
+    },500);
+
+  </script>
+
+</body>
+</html>

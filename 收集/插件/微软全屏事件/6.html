@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>msExitFullscreen API test</title>
+	<style>
+	:-webkit-full-screen {
+		height: 100%!important;
+		width:100%!important;
+	}
+	
+	:-ms-fullscreen {
+        position:absolute;
+        left:0px;
+        top:0px;
+        width: 100%!important;
+        height: 100%!important;         
+      }
+	</style>
+  </head>
+  <body>
+    <div id="div1" class="fullScreen" style="width: 600px; height: 350px; background-color: yellow">
+      Div1 
+    </div>
+	<button onclick="he()">123</button>
+    <script type="text/javascript">
+  
+	  function he(){
+		 makeFullScreen(); // open to full screen
+	  }
+  
+      function makeFullScreen() {
+	    var divObj = document.getElementById("div1");
+        if (divObj.requestFullscreen) {
+          divObj.requestFullscreen();
+        }
+        else if (divObj.msRequestFullscreen) {
+          divObj.msRequestFullscreen();
+        }
+        else if (divObj.mozRequestFullScreen) {
+          divObj.mozRequestFullScreen();
+        }
+        else if (divObj.webkitRequestFullscreen) {
+          divObj.webkitRequestFullscreen();
+        }
+        inFullScreen = true;
+        return;
+      }
+
+      function reset() {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+        else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+        else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        }
+        else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        }
+        inFullScreen = false;
+        return;
+      }
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.0&ak=nIVOHObx8heG1DMox2kzyoU82noeGWAd"></script>

@@ -1,0 +1,193 @@
+function rightArc(marginRange,text1,num1,text2,num2,text3,num3){
+			var text1Width=text1.length*15;
+			var text2Width=text2.length*15;
+			var text3Width=text3.length*15;
+			var num1Width=num1.toString().length*10;
+			var num2Width=num2.toString().length*10;
+			var num3Width=num3.toString().length*10;
+			//右上方大图的canvas绘画边框
+			var canvasX=$('#officeInfo').width();
+			var canvasY=$('#officeInfo').height();
+			/*取父级元素的长宽为canvas赋值*/
+			$('#officeInfoCanvas').attr('width',canvasX);
+			$('#officeInfoCanvas').attr('height',canvasY);
+			var oldCtx = officeInfoCanvas.getContext('2d');
+			var bigR=0;
+			if((canvasX-marginRange*2)/2<=(canvasY-marginRange*2)/3){
+				bigR=((canvasX-marginRange*2)/2)/2;		
+			}else{
+				bigR=((canvasY-marginRange*2)/3)/2;
+			}
+		    oldCtx.lineWidth = 1.5;
+		    //清除画布上的所有内容
+	      	oldCtx.clearRect(0,0, canvasX, canvasY);
+		    
+	      	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#549ac1";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+bigR,bigR,1.5*Math.PI,0.8*Math.PI,false);
+		  	oldCtx.moveTo(marginRange+bigR,marginRange+2*bigR);
+		  	oldCtx.arc((marginRange+bigR),marginRange+3*bigR,bigR,1.5*Math.PI,0.8*Math.PI,false);
+		  	oldCtx.moveTo(canvasX-marginRange-bigR,marginRange+4*bigR);
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+5*bigR,bigR,1.5*Math.PI,0.8*Math.PI,false);
+		  	oldCtx.stroke(); 
+		  	//外层圆圈上的小点
+		  	oldCtx.beginPath();
+		  	oldCtx.fillStyle="#549ac1";
+		  	//第一个圆的两个点
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange,3,0,2*Math.PI,false);
+		  	oldCtx.moveTo((canvasX-marginRange-bigR)-Math.sin(54*0.017453293)*bigR,marginRange+bigR+Math.cos(54*0.017453293)*bigR);
+		  	oldCtx.arc((canvasX-marginRange-bigR)-Math.sin(54*0.017453293)*bigR,marginRange+bigR+Math.cos(54*0.017453293)*bigR,3,0,2*Math.PI,false);
+		  	//第二个圆的两个点
+		  	oldCtx.moveTo(marginRange+bigR,marginRange+2*bigR);
+		  	oldCtx.arc(marginRange+bigR,marginRange+2*bigR,3,0,2*Math.PI,false);
+		  	oldCtx.moveTo(marginRange+bigR-Math.sin(54*0.017453293)*bigR,marginRange+3*bigR+Math.cos(54*0.017453293)*bigR);
+		  	oldCtx.arc(marginRange+bigR-Math.sin(54*0.017453293)*bigR,marginRange+3*bigR+Math.cos(54*0.017453293)*bigR,3,0,2*Math.PI,false);
+		  	//第三个圆的点
+		  	oldCtx.moveTo(canvasX-marginRange-bigR,marginRange+4*bigR);
+		  	oldCtx.arc(canvasX-marginRange-bigR,marginRange+4*bigR,3,0,2*Math.PI,false);
+		  	oldCtx.moveTo(canvasX-marginRange-bigR-Math.sin(54*0.017453293)*bigR,marginRange+5*bigR+Math.cos(54*0.017453293)*bigR);
+		  	oldCtx.arc(canvasX-marginRange-bigR-Math.sin(54*0.017453293)*bigR,marginRange+5*bigR+Math.cos(54*0.017453293)*bigR,3,0,2*Math.PI,false);
+		  	oldCtx.fill();
+		  	
+		  	var middleR=bigR-6;
+		  	//内部的第二圈的圆的画
+		  	//第一个的
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+bigR,middleR,Math.PI*(-178/360),Math.PI*(-2/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+bigR,middleR,Math.PI*(2/360),Math.PI*(178/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+bigR,middleR,Math.PI*(182/360),Math.PI*(358/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+bigR,middleR,Math.PI*(362/360),Math.PI*(-182/360),false);
+		  	oldCtx.stroke(); 
+		  	//第二个的
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((marginRange+bigR),marginRange+3*bigR,middleR,Math.PI*(-178/360),Math.PI*(-2/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((marginRange+bigR),marginRange+3*bigR,middleR,Math.PI*(2/360),Math.PI*(178/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((marginRange+bigR),marginRange+3*bigR,middleR,Math.PI*(182/360),Math.PI*(358/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((marginRange+bigR),marginRange+3*bigR,middleR,Math.PI*(362/360),Math.PI*(-182/360),false);
+		  	oldCtx.stroke();
+		  	//第三个的
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+5*bigR,middleR,Math.PI*(-178/360),Math.PI*(-2/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+5*bigR,middleR,Math.PI*(2/360),Math.PI*(178/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+5*bigR,middleR,Math.PI*(182/360),Math.PI*(358/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#1b89c5";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+5*bigR,middleR,Math.PI*(362/360),Math.PI*(-182/360),false);
+		  	oldCtx.stroke();
+		  	//内部的最里圈的圆
+		  	var smallR=middleR-10;
+		  	 oldCtx.lineWidth = 3;
+		  	 
+		  	//第一个的
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+bigR,smallR,Math.PI*(-88/360),Math.PI*(88/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+bigR,smallR,Math.PI*(92/360),Math.PI*(268/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+bigR,smallR,Math.PI*(272/360),Math.PI*(-272/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+bigR,smallR,Math.PI*(-268/360),Math.PI*(-92/360),false);
+		  	oldCtx.stroke(); 
+		  	//第二个的
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((marginRange+bigR),marginRange+3*bigR,smallR,Math.PI*(-88/360),Math.PI*(88/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((marginRange+bigR),marginRange+3*bigR,smallR,Math.PI*(92/360),Math.PI*(268/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((marginRange+bigR),marginRange+3*bigR,smallR,Math.PI*(272/360),Math.PI*(-272/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((marginRange+bigR),marginRange+3*bigR,smallR,Math.PI*(-268/360),Math.PI*(-92/360),false);
+		  	oldCtx.stroke(); 
+		  	//第三个的
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+5*bigR,smallR,Math.PI*(-88/360),Math.PI*(88/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+5*bigR,smallR,Math.PI*(92/360),Math.PI*(268/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+5*bigR,smallR,Math.PI*(272/360),Math.PI*(-272/360),false);
+		  	oldCtx.stroke(); 
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#36a6e2";
+		  	oldCtx.arc((canvasX-marginRange-bigR),marginRange+5*bigR,smallR,Math.PI*(-268/360),Math.PI*(-92/360),false);
+		  	oldCtx.stroke(); 
+		  	
+		  	//中间的连接点
+		  	//第一个的圆心坐标canvasX-marginRange-bigR,marginRange+bigR，第二个的圆心坐标(marginRange+bigR),marginRange+3*bigR
+		  	oldCtx.beginPath();
+		  	oldCtx.fillStyle="#9bd5f4";
+		  	oldCtx.arc((canvasX-marginRange-2*bigR),marginRange+2*bigR,3,0,Math.PI*2,false);
+		  	oldCtx.arc((canvasX-marginRange-2*bigR),marginRange+4*bigR,3,0,Math.PI*2,false);
+		  	oldCtx.fill();
+		  	
+		  	oldCtx.lineWidth = 1.5;
+		  	//两个箭头指向的地方
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#9bd5f4";
+		  	oldCtx.moveTo(canvasX-marginRange-2*bigR-10,marginRange+2*bigR);
+		  	oldCtx.lineTo(canvasX-marginRange-2*bigR-10,marginRange+2*bigR+10);
+		  	oldCtx.lineTo(canvasX-marginRange-2*bigR,marginRange+2*bigR+10);
+		  	oldCtx.moveTo(canvasX-marginRange-2*bigR+10,marginRange+4*bigR);
+		  	oldCtx.lineTo(canvasX-marginRange-2*bigR+10,marginRange+4*bigR+10);
+		  	oldCtx.lineTo(canvasX-marginRange-2*bigR,marginRange+4*bigR+10);
+		  	oldCtx.stroke();
+		  	
+		  	//三个圈内的文本
+		  	oldCtx.beginPath();
+		  	oldCtx.font = "15px 微软雅黑";  
+		  	oldCtx.fillStyle = "white";  
+ 		  	oldCtx.fillText(text1,canvasX-marginRange-bigR-(text1Width/2),marginRange+bigR-10);
+ 		  	oldCtx.fillText(text2,marginRange+bigR-(text2Width/2),marginRange+3*bigR-10);
+ 		  	oldCtx.fillText(text3,canvasX-marginRange-bigR-(text3Width/2),marginRange+5*bigR-10);
+ 		  	oldCtx.font = "20px 微软雅黑";  
+		  	oldCtx.fillStyle = "#6ee7f5";  
+		  	oldCtx.fillText(num1,canvasX-marginRange-bigR-(num1Width/2),marginRange+bigR+20);
+ 		  	oldCtx.fillText(num2,marginRange+bigR-(num2Width/2),marginRange+3*bigR+20);
+ 		  	oldCtx.fillText(num3,canvasX-marginRange-bigR-(num3Width/2),marginRange+5*bigR+20);
+		}

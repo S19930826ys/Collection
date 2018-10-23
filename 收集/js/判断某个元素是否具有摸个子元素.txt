@@ -1,0 +1,3 @@
+if($("#dirTableFieldList:has(tr)").length == 0){
+	
+}

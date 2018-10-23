@@ -1,0 +1,9 @@
+//点击任意处关闭搜索框
+			 document.addEventListener('click',function (e) {
+			   var parent=$(e.target).parents('#searchInput');
+			   if(parent.length==0){
+				   $("#searchImg").show();
+				   $("#J_main_nav").show();
+				   $("#searchInput").hide();
+			   }
+			})

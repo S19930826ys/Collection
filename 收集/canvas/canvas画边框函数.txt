@@ -1,0 +1,92 @@
+/*自己画的canvas*/
+		function canvasShanxi(parentId,canvasId,TitleId){
+			var canvasX=$('#'+parentId.id).width();
+			var canvasY=$('#'+parentId.id).height();
+			//取父级元素的长宽为canvas赋值
+			$('#'+canvasId.id).attr('width',canvasX);
+			$('#'+canvasId.id).attr('height',canvasY);
+			var exchangeDataTitle=$("#"+TitleId.id).text();
+			var chartData1TitleWidth=exchangeDataTitle.length*15;
+			var oldCtx = canvasId.getContext('2d');
+		    oldCtx.lineWidth = 1;
+		    //清除画布上的所有内容
+	      	oldCtx.clearRect(0,0, canvasX, canvasY);
+		 	//第一个块
+	     	//绘制图片中的外框
+		 	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#59b4e9";
+		  	oldCtx.moveTo(15,30);
+		  	oldCtx.lineTo(30,15);
+		  	oldCtx.lineTo((canvasX-chartData1TitleWidth)/2-20,15);
+		  	oldCtx.lineTo((canvasX-chartData1TitleWidth)/2,0);
+		  	oldCtx.lineTo((canvasX+chartData1TitleWidth)/2,0);
+		  	oldCtx.lineTo((canvasX+chartData1TitleWidth)/2+20,15);
+		  	oldCtx.lineTo(canvasX-30,15);
+		  	oldCtx.lineTo(canvasX-15,30);
+		  	/*中间的添加处*/
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3);
+		  	oldCtx.lineTo(canvasX,(canvasY-15)/3+15);
+		  	oldCtx.lineTo(canvasX,(canvasY-15)/3*2-15);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3*2);
+		  	oldCtx.lineTo(canvasX-15,canvasY-15);
+		  	oldCtx.lineTo(canvasX-30,canvasY);
+		  	oldCtx.lineTo(30,canvasY);
+		  	oldCtx.lineTo(15,canvasY-15);
+		  	oldCtx.lineTo(15,30);
+		  	oldCtx.stroke(); 
+
+		  	//绘制左下角粗边部分
+		  	oldCtx.lineWidth = 2;
+		  	oldCtx.beginPath();
+		  	oldCtx.strokeStyle="#59b4e9";
+		  	oldCtx.moveTo(4,43);
+		  	oldCtx.lineTo(4,23);
+		  	oldCtx.lineTo(23,4);
+		  	oldCtx.lineTo(43,4);
+		  	oldCtx.moveTo(canvasX-4,43);
+		  	oldCtx.lineTo(canvasX-4,23);
+		  	oldCtx.lineTo(canvasX-23,4);
+		  	oldCtx.lineTo(canvasX-43,4);
+		  	oldCtx.stroke(); 
+		  	
+		  	//中间加住部分的五块
+		  	oldCtx.beginPath();
+		  	oldCtx.fillStyle="#80a2ed";
+		  	/*右侧第一个块*/
+		  	oldCtx.moveTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72*2);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*2);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72);
+		  	/*右侧第一个块*/
+		  	oldCtx.moveTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*3.5);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72*3.5);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72*4.5);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*4.5);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*3.5);
+		  	/*右侧第一个块*/
+		  	oldCtx.moveTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*6);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72*6);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72*7);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*7);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*6);
+		  	/*右侧第一个块*/
+		  	oldCtx.moveTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*8.5);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72*8.5);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72*9.5);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*9.5);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*8.5);
+		  	/*右侧第一个块*/
+		  	oldCtx.moveTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*11);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72*11);
+		  	oldCtx.lineTo(canvasX-3,(canvasY-15)/3+12+(canvasY-20)/72*12);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*12);
+		  	oldCtx.lineTo(canvasX-15,(canvasY-15)/3+(canvasY-20)/72*11);
+		    oldCtx.fill();
+		  	
+		    //上方图的标题
+		  	oldCtx.beginPath();
+		  	oldCtx.font = "15px 微软雅黑";  
+		  	oldCtx.fillStyle = "white";  
+		  	oldCtx.fillText(exchangeDataTitle,(canvasX-chartData1TitleWidth)/2,20);
+		}

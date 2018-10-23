@@ -1,0 +1,4 @@
+$.validator.addMethod("notBlank", function(phone_number, element) {
+	phone_number = phone_number.replace(/\s+/g,"");
+	return this.optional(element) || phone_number.match(/^(?! +).+$/);
+}, "不能输入全为空格！");

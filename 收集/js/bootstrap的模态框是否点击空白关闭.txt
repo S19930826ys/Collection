@@ -1,0 +1,4 @@
+$('#myModal').modal({
+		        	    show:true,
+		        	    backdrop:'static'
+		        	});

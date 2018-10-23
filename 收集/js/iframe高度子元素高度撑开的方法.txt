@@ -1,0 +1,5 @@
+$("iframeID").on("load",function(){
+	$("iframeID").height($("iframeId").contents().find("body .tabs-container").height()+50);	
+});
+
+//其中.tabs-container是实际高度的子元素

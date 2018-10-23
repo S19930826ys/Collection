@@ -1,0 +1,4 @@
+event.stopPropagation();
+阻止冒泡事件，子元素的事件触发父元素的事件
+event.preventDefault();
+阻止默认事件的触发
